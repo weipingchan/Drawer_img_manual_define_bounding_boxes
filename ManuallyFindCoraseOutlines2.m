@@ -104,7 +104,7 @@ for drawer=1:size(img_listing,1)
             rectangle('Position', position_box, 'EdgeColor','r', 'LineWidth', 1);
         end
         hold off;
-        saveas(figout, drawervisoutname);
+        export_fig(figout, drawervisoutname, '-jpg', '-r100');
         disp('An image with identified boxes of specimens has been saved.');
 
         %Save the boxes
