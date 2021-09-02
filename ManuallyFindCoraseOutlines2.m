@@ -28,19 +28,19 @@ for drawer=1:size(img_listing,1)
     %Read the image
     disp(['Start to analyze drawer: [',template,'].']);
     disp('Start to read images into memory.');
-    img_names=fullfile(Img_directory,[template,'_940.',imgFiletype]); %Note that only the NIR940 tiff will be recongnized
+    img_names=fullfile(Img_directory,[template,'_940.',imgFiletype]); %Note that only the NIR940 tiff will be recognized
     ref0 = import_img(img_names);
     disp('An image has been read into memory.');
 
     redres = imadjust(ref0(:,:,1));
     greenres = imadjust(ref0(:,:,2));
     blueres = imadjust(ref0(:,:,3));
-    % Sum all color channels into an gray image.
+    % Sum all color channels into a gray image.
     ref = mat2gray(imadd(imadd(redres,greenres),blueres));
     clear('ref0', 'redres', 'greenres', 'blueres');
 
-    %Chek the special directory 'manual_boxes' in the Code_directory for
-    %information of corresponding boxes information
+    %Check the special directory 'manual_boxes' in the Code_directory for
+    %information of corresponding box information
     boxInfoDir='manual_boxes';
     boxinname=fullfile(Code_directory,boxInfoDir,[template,'_Boxes.mat']);
     box0=load(boxinname);
@@ -61,7 +61,7 @@ for drawer=1:size(img_listing,1)
     if isempty(drawerID)
         disp('CANNOT find corresponding drawer information.');
         position=manually_def_without_record(ref,boxAll); %The interactive procedure without the label reference
-        disp('Total ',[num2str(length(position)),' specimens  have been manually defined.']);
+        disp('Total ',[num2str(length(position)),' specimens have been manually defined.']);
     else
         disp('Find the corresponding drawer information.');
         specimenLabelList0=table2cell(labelfile(drawerID,:));
@@ -115,10 +115,10 @@ for drawer=1:size(img_listing,1)
 
         boxoutname=fullfile(Code_directory,boxInfoDir,[template,'_Boxes.mat']);
         save(boxoutname,'geometry_osize');
-        disp(['Boxes matrices for drawer: [',template,'] has been saved.']);
+        disp(['Box matrices for drawer: [',template,'] has been saved.']);
         disp(['Drawer ',num2str(drawer),' (',template,') of total ',num2str(size(img_listing,1)),' drawers has been identified.']);
   
-    %Move those images having been analyzed to a subdirectory
+    %Move those images that have been analyzed to a subdirectory
     finishedDir='done';
     if ~exist(fullfile(Img_directory,finishedDir), 'dir')
         mkdir(fullfile(Img_directory,finishedDir));

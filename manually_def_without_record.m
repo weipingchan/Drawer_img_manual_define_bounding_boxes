@@ -1,6 +1,6 @@
 function positionlist=manually_def_without_record(ref,boxAll)
 
-disp('Press   f   if you finish define all boxes.');
+disp('Press f if you have finished defining all boxes.');
 
 defaultbox=[round(size(ref,1)/2)-400,round(size(ref,1)/2)+400,round(size(ref,2)/2)-300,round(size(ref,2)/2)+300];
 
@@ -26,10 +26,10 @@ defaultbox=[round(size(ref,1)/2)-400,round(size(ref,1)/2)+400,round(size(ref,2)/
         while 1
             while 1
             k = waitforbuttonpress;
-            % 28 leftarrow
-            % 29 rightarrow
-            % 30 uparrow
-            % 31 downarrow
+            % 28 left arrow
+            % 29 right arrow
+            % 30 up arrow
+            % 31 down arrow
             %104 f
             %114 r
                 if k==1 %exclude mouse click
@@ -77,7 +77,7 @@ defaultbox=[round(size(ref,1)/2)-400,round(size(ref,1)/2)+400,round(size(ref,2)/
         end
         
         if  bflag==0
-            pause; %Press any key if finish the adjusting
+            pause; %Press any key if finished adjusting
             position = getPosition(hit);
             delete(hit);
             wid=wid+1;
