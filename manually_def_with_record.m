@@ -74,7 +74,7 @@ defaultbox=[round(size(ref,1)/2)-400,round(size(ref,1)/2)+400,round(size(ref,2)/
         end
         
         if  bflag==0
-            pause; %Press any key if finish the adjusting
+            pause; %Press any key if fished adjusting
             position = getPosition(hit);
             delete(hit);
             wid=wid+1;
