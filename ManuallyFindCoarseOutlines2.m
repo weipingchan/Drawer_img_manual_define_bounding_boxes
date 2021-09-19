@@ -1,4 +1,4 @@
-function ManuallyFindCoraseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName)
+function ManuallyFindCoarseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName)
 % Turn off this warning "Warning: Image is too big to fit on screen; displaying at 33% "
 % To set the warning state, you must first know the message identifier for the one warning you want to enable. 
 warning('off', 'Images:initSize:adjustingMag');
@@ -28,19 +28,19 @@ for drawer=1:size(img_listing,1)
     %Read the image
     disp(['Start to analyze drawer: [',template,'].']);
     disp('Start to read images into memory.');
-    img_names=fullfile(Img_directory,[template,'_940.',imgFiletype]); %Note that only the NIR940 tiff will be recongnized
+    img_names=fullfile(Img_directory,[template,'_940.',imgFiletype]); %Note that only the Near-IR940 tiff will be recongnized
     ref0 = import_img(img_names);
     disp('An image has been read into memory.');
 
     redres = imadjust(ref0(:,:,1));
     greenres = imadjust(ref0(:,:,2));
     blueres = imadjust(ref0(:,:,3));
-    % Sum all color channels into an gray image.
+    % Sum all color channels into a gray image.
     ref = mat2gray(imadd(imadd(redres,greenres),blueres));
     clear('ref0', 'redres', 'greenres', 'blueres');
 
-    %Chek the special directory 'manual_boxes' in the Code_directory for
-    %information of corresponding boxes information
+    %Check the special directory 'manual_boxes' in the Code_directory for
+    %information about corresponding boxes
     boxInfoDir='manual_boxes';
     boxinname=fullfile(Code_directory,boxInfoDir,[template,'_Boxes.mat']);
     box0=load(boxinname);
@@ -50,7 +50,7 @@ for drawer=1:size(img_listing,1)
     %read the csv label file
     labelfile=readtable(fullfile(Code_directory,labelfileName));
     drawerlist=table2cell(labelfile(:,1));
-    disp('The file including labels information is found.');
+    disp('The file including label information is found.');
 
     %Find the corresponding labels and match with the number of specimens
     %Create temporary one if cannot find one
@@ -61,7 +61,7 @@ for drawer=1:size(img_listing,1)
     if isempty(drawerID)
         disp('CANNOT find corresponding drawer information.');
         position=manually_def_without_record(ref,boxAll); %The interactive procedure without the label reference
-        disp('Total ',[num2str(length(position)),' specimens  have been manually defined.']);
+        disp('Total ',[num2str(length(position)),' specimens have been manually defined.']);
     else
         disp('Find the corresponding drawer information.');
         specimenLabelList0=table2cell(labelfile(drawerID,:));
