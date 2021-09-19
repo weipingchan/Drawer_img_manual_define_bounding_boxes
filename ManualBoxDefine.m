@@ -1,6 +1,6 @@
 Img_directory ='IMG_DIRECTORY'; %The directory storaging the NIR940 linearized tiff images
 Code_directory='MATLAB_LIBRARY'; %The path indicating Matlab script library
-Result_directory='RESUTL_DIRECTORY'; %Where the results should go
+Result_directory='RESULT_DIRECTORY'; %Where the results should go
 labelfileName='LABEL_FILE.csv'; %The corresponding CSV file that containing label information (see Examplar file for data structure)
 %%
 %%%Guide%%%
@@ -15,5 +15,5 @@ labelfileName='LABEL_FILE.csv'; %The corresponding CSV file that containing labe
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 addpath(genpath(Code_directory)) %Add the library to the path
-ManuallyFindCoraseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName);
+ManuallyFindCoarseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
