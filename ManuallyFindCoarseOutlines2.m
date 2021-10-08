@@ -1,6 +1,6 @@
 function ManuallyFindCoraseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName)
 % Turn off this warning "Warning: Image is too big to fit on screen; displaying at 33% "
-% To set the warning state, you must first know the message identifier for the one warning you want to enable. 
+% To set the warning state, you must first know the message identifier for the warning you want to enable. 
 warning('off', 'Images:initSize:adjustingMag');
 
 %Read the file list in the Img_directory
