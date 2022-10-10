@@ -48,9 +48,7 @@ for drawer=1:size(img_listing,1)
     boxAll=box0.(fieldName);
     
     %read the csv label file
-    opts = detectImportOptions(fullfile(Code_directory,labelfileName));
-	opts=setvartype(opts, opts.VariableNames,'char');
-    labelfile=readtable(fullfile(Code_directory,labelfileName),opts);
+    labelfile=readtable(fullfile(Code_directory,labelfileName));
     drawerlist=table2cell(labelfile(:,1));
     disp('The file including labels information is found.');
 
