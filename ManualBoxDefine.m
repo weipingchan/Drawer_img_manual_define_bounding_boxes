@@ -15,5 +15,5 @@ labelfileName='LABEL_FILE.csv'; %The corresponding CSV file that contains label 
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 addpath(genpath(Code_directory)) %Add the library to the path
-ManuallyFindCoraseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName);
+ManuallyFindCoarseOutlines2(Img_directory,Code_directory,Result_directory,labelfileName);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
