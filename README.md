@@ -1,8 +1,8 @@
 # Manual bounding box correction tools
-Please prepare the pre-run bounding box result and place it in the 'manual_boxes' within the code library if possible.
-Please prepare the corresponding label file in csv format
-Open the 'ManuallyBoxDefine.m' in Matlab
-Specify all necessary variables and execute it
+- Please prepare the pre-run bounding box result and place it in the 'manual_boxes' within the code library if possible.
+- Please prepare the corresponding label file in csv format
+- Open the 'ManuallyBoxDefine.m' in Matlab
+- Specify all necessary variables and execute it
 
 Please find the article describing the application of this script below (DOI: 10.1038/s42003-022-04282-z):
 (https://www.nature.com/articles/s42003-022-04282-z)
